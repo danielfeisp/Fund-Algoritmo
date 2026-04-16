@@ -12,3 +12,5 @@ for controlador in range (0,10):
 print(acumulador)
 
 time.sleep(3)
+
+# Soma 10 números aleatórios

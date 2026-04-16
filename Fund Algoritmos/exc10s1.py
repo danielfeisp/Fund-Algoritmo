@@ -9,3 +9,5 @@ for algo in range (0,6):
 print("Esse número é o Maior: %d" %Maior )
 
 time.sleep(3)
+
+#Computador identifica o maior número entre 6 números

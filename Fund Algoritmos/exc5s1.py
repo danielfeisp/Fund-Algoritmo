@@ -20,3 +20,5 @@ else:
     print("Esta é a ordem correta: %d,%d,%d" % (z,y,x))
 
 time.sleep(2)
+
+# Organiza números de forma decrescente

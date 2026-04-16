@@ -18,3 +18,5 @@ else:
     print("Você possui obesidade grau III (mórbida)")
 
 time.sleep(3)
+
+# Medidor de IMC

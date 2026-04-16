@@ -5,3 +5,5 @@ while True:
         x=0
     print(x)
     x=x+1
+
+# Esse é legal, dá print infinito de números de 1 a 100000

@@ -21,3 +21,5 @@ else:
 
 time.sleep(5)
 
+# Determina se um carro toma multa ou não
+

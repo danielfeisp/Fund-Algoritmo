@@ -20,3 +20,5 @@ elif 25<=x<=30:
     print("Cajá, R$6,99/kg, vindo do Nordeste")
 
 time.sleep(2)
+
+# Exercicio de itens de um supermercado

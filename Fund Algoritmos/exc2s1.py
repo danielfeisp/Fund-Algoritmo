@@ -9,3 +9,5 @@ else:
     print("Você digitou o número zero")
 
 time.sleep(3)
+
+# Computador sabe o numero que tu digitou (q dificil)
