@@ -13,6 +13,11 @@ def apresentacao():
         execLogin()
     elif numApresentacao == 2:
         execCadastro()
+    else:
+        print()
+        print("O número digitado não possui uma função atrelada. Tente novamente")
+        print()
+        apresentacao()
 def LoginADM():
     insertNomeADM = str(input("Insira seu nome de Admnistrador: ").strip())
     insertSenhaADM = str(input("Insira sua senha: ").strip())
@@ -32,21 +37,37 @@ def LoginADM():
             acesso_liberado()
         else:
             acesso_negado()
-            insertTryAgain = int(input())
-            if insertTryAgain == 1:
-                LoginADM()
-            elif insertTryAgain == 2:
-                apresentacao()
+            while True:
+                insertTryAgain = int(input())
+                if insertTryAgain == 1:
+                    return LoginADM()
+                elif insertTryAgain == 2:
+                    return apresentacao()
+                else:
+                    print()
+                    print("O número digitado não possui uma função atrelada. Tente novamente")
+                    print()
+                    print("1 - Tentar Novamente")
+                    print("2 - Voltar para o menu")
+                    print()
     else:
         print("Usuário não encontrado. Tente novamente ou cadastre um novo Usuário")
         print()
         print("1 - Tentar novamente")
         print("2 - Cadastrar novo usuário")
-        insertTenteDenovo = int(input())
-        if insertTenteDenovo == 1:
-            LoginADM()
-        elif insertTenteDenovo == 2:
-            execCadastro()
+        while True:
+            insertTenteDenovo = int(input())
+            if insertTenteDenovo == 1:
+                return LoginADM()
+            elif insertTenteDenovo == 2:
+                return execCadastro()
+            else:
+                print()
+                print("O número digitado não possui uma função atrelada. Tente novamente")
+                print()
+                print("1 - Tentar Novamente")
+                print("2 - Cadastrar novo usuário")
+                print()
 def LoginUsuario():
     insertNomeUsu = str(input("Insira seu nome de Usuário: ").strip())
     insertSenhaUsu = str(input("Insira sua senha: ").strip())
@@ -62,16 +83,25 @@ def LoginUsuario():
     bdUsuario.close()
     if usuario_achado:
         acesso_liberado()
+        AposLoginUsuario()
     else:
         print("Usuário não encontrado. Tente novamente ou cadastre um novo Usuário")
         print()
         print("1 - Tentar novamente")
         print("2 - Cadastrar novo usuário")
-        insertTenteDenovo = int(input())
-        if insertTenteDenovo == 1:
-            LoginUsuario()
-        elif insertTenteDenovo == 2:
-            execCadastro()
+        while True:
+            insertTenteDenovo = int(input())
+            if insertTenteDenovo == 1:
+                return LoginUsuario()
+            elif insertTenteDenovo == 2:
+                return execCadastro()
+            else:
+                print()
+                print("O número digitado não possui uma função atrelada. Tente novamente")
+                print()
+                print("1 - Tentar Novamente")
+                print("2 - Cadastrar novo Usuario")
+                print()
 
 def execLogin():
     print()
@@ -91,11 +121,17 @@ def execLogin():
     elif numLogin == 3:
         print()
         apresentacao()
+    else:
+        print()
+        print("O número digitado não possui uma função atrelada. Tente novamente")
+        print()
+        execLogin()
+
 def CadastroUsu():
     NovoNomeUsu = str(input("Insira seu nome de Usuário: ").strip())
     NovaSenhaUsu = str(input("Insira uma senha para sua conta: ").strip())
     if ";" in NovoNomeUsu:
-        print("Erro: O nome de usuário não pode conter dois pontos (;)")
+        print("Erro: O nome de usuário não pode conter ponto e vírgula (;)")
         print()
         return CadastroUsu()
     elif NovoNomeUsu == "" or NovaSenhaUsu == "":
@@ -141,7 +177,7 @@ def CadastroADM():
         NovoNomeADM = str(input("Insira seu nome de usuário: ").strip())
         NovaSenhaADM = str(input("Insira uma senha para sua conta: ").strip())
         if ";" in NovoNomeADM:
-            print("Erro: O nome de usuário não pode conter dois pontos (;)")
+            print("Erro: O nome de usuário não pode conter ponto e vírgula (;)")
             print()
             return CadastroADM()
         elif NovoNomeADM == "" or NovaSenhaADM == "":
@@ -170,13 +206,20 @@ def CadastroADM():
                 apresentacao()
     else:
         acesso_negado()
-        insertNovaTentativa = int(input())
-        if insertNovaTentativa == 1:
-            print()
-            CadastroADM()
-        elif insertNovaTentativa == 2:
-            print()
-            apresentacao()
+        while True:
+            insertNovaTentativa = int(input())
+            if insertNovaTentativa == 1:
+                print()
+                return CadastroADM()
+            elif insertNovaTentativa == 2:
+                print()
+                return apresentacao()
+            else:
+                print()
+                print("O número digitado não possui uma função atrelada. Tente novamente")
+                print()
+
+
 def execCadastro():
     print()
     print("Deseja se cadastrar como um novo ADM ou Usuário?")
@@ -194,7 +237,12 @@ def execCadastro():
         CadastroADM()
     elif numCadastro == 3:
         print()
-        apresentacao()        
+        apresentacao()
+    else:
+        print()
+        print("O número digitado não possui uma função atrelada. Tente novamente")
+        print()
+        execCadastro
 def acesso_liberado():
     print()
     print("Carregando")
@@ -225,5 +273,10 @@ def acesso_negado():
     print("2 - Voltar para o menu")
     print()
 apresentacao()
-
-time.sleep(3)
+def AposLoginUsuario():
+    print("O que deseja fazer?")
+    print()
+    print("1 - Buscar filme por nome")
+    print("2 - Curtir filmes assistidos")
+    print("3 - Favoritar filmes assistidos")
+    print("4 - Acessar filmes curtidos e favoritos")
